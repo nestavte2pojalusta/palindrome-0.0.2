@@ -1,32 +1,45 @@
-# Prerequisites
-*.d
+nclude <iostream> 
+#include <stdio.h>
+#include <string.h>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+short code(char a)
+{
+    short b;
+    b = (short)a;
+    return b;
+    }
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+int main()
 
-# Fortran module files
-*.mod
-*.smod
+{
+	string s, k, m;
+	int i, p;
+	getline(cin,s);
+	p = s.length();
+	for (i = p - 1; i >= 0; --i) {
+	    if (code(s[i])>64) {
+		    if (code(s[i])<91) {k+=s[i];}
+		}
+		if (code(s[i])>96) {
+		    if (code(s[i])<123) {k+=s[i] - 32;}
+		}
+		if (code(s[i])>47) {
+		    if (code(s[i])<58) {k+=s[i];}
+		}
+	}
+	p=k.length();
+	for (i = p - 1; i >= 0; i=i-1) {
+		m +=k[i];
+	}
+	if (m == k) {
+		cout << '1';
+	}
+	else {
+		cout << '0';
+	}
+	system("pause");
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+	return 0;
+}
